@@ -20,3 +20,6 @@ void print(__int128 x) {
     putchar(x % 10 + '0');
 }
 bool cmp(__int128 x, __int128 y) { return x > y; }
+
+//https://ideone.com/ppqIps
+//https://codeforces.com/blog/entry/75044
