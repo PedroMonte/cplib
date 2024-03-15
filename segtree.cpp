@@ -1,6 +1,6 @@
-const int ms = 1e5+5;
+const int ms = 2e5+5;
 ll seg[4*ms];
-vl v;
+ll v[4*ms];
 
 void update(ll i, ll l, ll r, ll pos, ll n) {
     if (l == r) {
@@ -17,6 +17,8 @@ void update(ll i, ll l, ll r, ll pos, ll n) {
     } else {
         update(right, m+1, r, pos, n);
     }
+
+    seg[i] = seg[left] + seg[right];
 }
 
 void build(ll i, ll l, ll r) {
