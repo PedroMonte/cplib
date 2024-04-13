@@ -1,7 +1,3 @@
-#include <bits/stdc++.h>
-
-#include "base.cpp"
-
 vvl g;
 vvl dist;
 
@@ -12,9 +8,9 @@ int main() {
 
     int n, m;
 
-    FORLE(k, 1, n) {
-        FORLE(i, 1, n) {
-            FORLE(j, 1, n) {
+    for(int k = 1; k < n; k++) {
+        for(int i = 1; i < n; i++) {
+            for(int j = 1; j < n; j++) {
                 dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
             }
         }
