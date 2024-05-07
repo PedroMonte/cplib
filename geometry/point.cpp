@@ -1,3 +1,7 @@
+
+#include <bits/stdc++.h>
+#include "../base.cpp"
+
 const double inf = 1e100, eps = 1e-9;
 const double PI = acos(-1.0L);
 int cmp (double a, double b = 0) {
