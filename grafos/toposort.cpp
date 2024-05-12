@@ -1,8 +1,10 @@
-#include "base.cpp"
+int n;
+vector<vector<pii>> g(n);
+vector<int> npar(n, 0);
 
-void tps(vvi g, int n, vi npar) {
+void tps(int n) {
     queue<int> q;
-    FORLE(i, 1, n) {
+    for (int i = 0; i < n; i++) {
         if (npar[i] == 0) {
             q.push(i);
         }

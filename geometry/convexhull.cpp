@@ -1,5 +1,5 @@
-// O(nlogn) sorted = false
-// O(n) sorted = true
+// O(nlogn) sorted = false (array de pontos nao ordenado)
+// O(n) sorted = true (array de pontos ja ordenado)
 // retorna todos os pontos q tao no c.h
 vector<Point> convexHull(vector<Point>& pts, bool sorted = false){ // pts.size() >= 3
   int n = pts.size();

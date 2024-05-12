@@ -1,23 +1,29 @@
-#include <bits/stdc++.h>
-#include "base.cpp"
+vector<int> weights; 
+vector<int> values;
+vector<vector<int>> dp;
 
-int knapsack_rec(int i, int c, int n, vi weights, vi values, vvl& dp) {
+int knapsack_rec(int i, int c, int n) {
     if (i == n) return 0;
     if (dp[i][c] != -1) return dp[i][c];
 
-    ll op1 = knapsack_rec(i+1, c, n, weights, values, dp);
+    ll op1 = knapsack_rec(i+1, c, n);
     ll op2 = 0;
 
     if (c >= weights[i]) {
-        op2 = values[i] + knapsack_rec(i+1, c - weights[i], n, weights, values, dp);
+        op2 = values[i] + knapsack_rec(i+1, c - weights[i], n);
     }
 
     return dp[i][c] = max(op1, op2);
 }
 
-int knapsack_int(int i, int c, int n, vi weights, vi values, vvl& dp) {
-    FORLE(i, 1, n) {
-        FORLE(j, 1, c) {
+vector<int> weights; 
+vector<int> values;
+vector<vector<int>> dp;
+
+int knapsack_int(int i, int c, int n) {
+    
+    for(int i = 1; i <= n; i++) {
+        for (int j = 1; j <= c; j++) {
             dp[i][c] = dp[i-1][c];
 
             if (weights[i-1] <= c) {
@@ -27,7 +33,9 @@ int knapsack_int(int i, int c, int n, vi weights, vi values, vvl& dp) {
     }
 }
 
-int lcs(int i, int j, string s, string t, vvl dp) {
+vector<vector<int>> dp;
+
+int lcs(int i, int j, string s, string t) {
     if (i == s.size() || j == t.size()) return 0;
     if (dp[i][j] != -1) return dp[i][j];
 
@@ -49,22 +57,14 @@ int lis(vi &nums) {
 
 }
 
-int kadane(int n, vi &v) {
+int kadane(int n, vector<int> &v) {
     int ans = 0;
     int cur = 0;
-    FOR(i, 0, n) {
+    for(int i = 0; i < n; i++) {
         cur = max(v[i], cur + v[i]);
         ans = max(ans, cur);
     }
 
     return ans;
-
-}
-
-int main() {
-
-    ios::sync_with_stdio(false);
-    cin.tie(0);   
-
 
 }

@@ -1,8 +1,10 @@
-#include "base.cpp"
+int n;
+vector<vector<pii>> g(n);
+vector<int> vis(n, 0);
 
-int prim(vector<vpii>& g, int s, vi& vis) {
+int prim(int s) {
     int mstW = 0;
-    priority_queue<pii, vpii, greater<pii>> pq;
+    priority_queue<pii, vector<pii>, greater<pii>> pq;
     pq.push({0, s});
 
     while (!pq.empty()) {
@@ -22,11 +24,4 @@ int prim(vector<vpii>& g, int s, vi& vis) {
     }
 
     return mstW;
-}
-
-int main() {
-
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-
 }

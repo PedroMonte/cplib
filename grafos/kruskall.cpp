@@ -1,14 +1,10 @@
-#include <bits/stdc++.h>
-
-#include "base.cpp"
-
 struct DSU {
     int n;
-    vi root, size;
+    vector<int> root, size;
     DSU(int n) {
         root.resize(n);
         size.assign(n,1);
-        FOR(i, 0, n) {
+        for(int i = 0; i < n; i++) {
             root[i] = i;
         }
     }
@@ -47,12 +43,5 @@ ll kruskal(int n, vector<lll> &edges) {
     }
 
     return mst_cost;
-
-}
-
-int main() {
-
-    ios::sync_with_stdio(false);
-    cin.tie(0);
 
 }

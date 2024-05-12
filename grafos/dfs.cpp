@@ -1,20 +1,13 @@
-#include "base.cpp"
+int n;
+vector<vector<int>> g(n);
+vector<int> vis(n);
 
-void dfs(vvi &g, int u, vi &vis) {
+void dfs(int u) {
     vis[u] = 1;
 
     for (int v : g[u]) {
         if (!vis[v]) {
-            dfs(g, v, vis);
+            dfs(v);
         }
     }
-    
-    
-}
-
-int main() {
-
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-
 }

@@ -1,8 +1,8 @@
-vi zfunc(string &s) {
+vector<int> zfunc(string &s) {
     int n = s.size();
-    vi z (n, 0);
+    vector<int> z (n, 0);
 
-    FOR(i, 0, n) {
+    for (int i = 0; i < n; i++) {
         int l, r = 0;
         if (i <= r) z[i] = min(z[i-l], r-i+1);
 

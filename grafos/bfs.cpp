@@ -1,8 +1,9 @@
-#include <bits/stdc++.h>
+int n, m;
+vector<vector<int>> g(n, vector<int>(m));
+vector<vector<int>> dist(n, vector<int>(m, INF));
+vector<vector<int>> vis(n, vector<int>(m, 0));
 
-#include "base.cpp"
-
-void bfs_grid(vvi &g, int m, int n, int i, int j, vvi &dist, vvi &vis) {
+void grid(int i, int j) {
     dist[i][j] = 0;
     vis[i][j] = 1;
     queue<pii> q;
@@ -12,7 +13,7 @@ void bfs_grid(vvi &g, int m, int n, int i, int j, vvi &dist, vvi &vis) {
         int w = q.front().first;
         int x = q.front().second;
         q.pop();
-        FOR(k, 0, 4) {
+        for (int k = 0; k < 4; k++) {
             int a = dirx[k] + w;
             int b = diry[k] + x;
 
@@ -26,7 +27,11 @@ void bfs_grid(vvi &g, int m, int n, int i, int j, vvi &dist, vvi &vis) {
     
 }
 
-int bfs_normal(vvi &g, int s, int n, vi &dist, vi &vis) {
+int n;
+vector<int> dist(n, INF);
+vector<int> vis(n, 0);
+
+int bfs(int s) {
     dist[s] = 0;
     vis[s] = 1;
 
@@ -47,12 +52,5 @@ int bfs_normal(vvi &g, int s, int n, vi &dist, vi &vis) {
     }
 
     return dist[n];
-
-}
-
-int main() {
-
-    ios::sync_with_stdio(false);
-    cin.tie(0);
 
 }
