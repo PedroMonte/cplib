@@ -3,7 +3,7 @@ vector<vector<int>> g(n);
 vector<vector<int>> reversed(n);
 vector<int> vis(n);
 
-stack<int> order;
+vector<int> order;
 vector<int> comp(n, -1);
 
 void dfs(int u) {
@@ -38,10 +38,8 @@ void calldfs1() {
 
 void calldfs2() {
     int j = 0;
-    while (!order.empty()) {
-        int i = order.top();
-        order.pop();
-
+    reverse(order.begin(), order.end());
+    for(int i : order) {
         if (comp[i] == -1) {
             dfs2(i, j++);
         }
